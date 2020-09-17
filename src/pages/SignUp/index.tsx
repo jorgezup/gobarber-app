@@ -11,6 +11,7 @@ import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 
 import getValidationErrors from '../../utils/getValidationErrors';
+import api from '../../services/api';
 
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -55,27 +56,20 @@ const SignUp: React.FC = () => {
         abortEarly: false,
       });
 
-      // await api.post('/users', data);
-
-      // history.push('/');
+      await api.post('/users', data);
 
       Alert.alert(
         'Cadastro Realizado',
         'Você já pode fazer seu logon no GoBarber!',
       );
+
+      navigation.navigate('SignIn');
     } catch (err) {
       const errors = getValidationErrors(err);
 
       formRef.current?.setErrors(errors);
-
-      return;
     }
-
-    Alert.alert(
-      'Erro no Cadastro',
-      'Ocorreu um erro ao fazer cadastro, tente novamente.',
-    );
-  }, []);
+  }, [navigation]);
 
   return (
     <>
