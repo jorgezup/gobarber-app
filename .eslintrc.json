@@ -31,6 +31,8 @@
       "no-use-before-define": "off",
       "react/jsx-props-no-spreading": "off",
       "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+      "@typescript-eslint/camelcase": "off",
+      "import/no-duplicates": "off",
       "import/prefer-default-export": "off",
       "import/extensions": [
         "error",
